@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--tester--ekremney.hlx.page/
+- Live: https://main--tester--ekremney.hlx.live/
 
 ## Installation
 
