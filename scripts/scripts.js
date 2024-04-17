@@ -74,12 +74,17 @@ export function decorateMain(main) {
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
-  const observer = new PerformanceObserver((list, obj) => {
+  new PerformanceObserver((list, obj) => {
     list.getEntries().forEach((entry) => {
       document.body.innerHTML = `<p>${JSON.stringify(entry)}</p>${document.body.innerHTML}`;
     });
-  });
-  observer.observe({ entryTypes: ['largest-contentful-paint'] });
+  }).observe({ entryTypes: ['largest-contentful-paint'] });
+
+  new PerformanceObserver((list) => {
+    list.getEntries().forEach((entry) => {
+      document.body.innerHTML = `<p>${JSON.stringify(entry)}</p>${document.body.innerHTML}`;
+    });
+  }).observe({ type: 'paint', buffered: true });
 
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
