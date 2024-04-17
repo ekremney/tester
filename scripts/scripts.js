@@ -76,7 +76,7 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   const observer = new PerformanceObserver((list, obj) => {
     list.getEntries().forEach((entry) => {
-      document.body.innerText = `<p>${JSON.stringify(entry)}</p>${document.body.innerText}`;
+      document.body.innerHTML = `<p>${JSON.stringify(entry)}</p>${document.body.innerHTML}`;
     });
   });
   observer.observe({ entryTypes: ['largest-contentful-paint'] });
