@@ -78,7 +78,7 @@ async function loadEager(doc) {
     list.getEntries().forEach((entry) => {
       document.body.innerHTML = `<p>${JSON.stringify(entry)}</p>${document.body.innerHTML}`;
     });
-  }).observe({ entryTypes: ['largest-contentful-paint'] });
+  }).observe({ type: 'largest-contentful-paint', buffered: true });
 
   new PerformanceObserver((list) => {
     list.getEntries().forEach((entry) => {
